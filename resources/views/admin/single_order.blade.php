@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Fresh Picks | Order List')
+@section('title', 'Fenris | Order List')
 @section('main-content')
     <div class="container-fluid">
         {{-- BreadCrumb  --}}

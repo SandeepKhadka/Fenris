@@ -8,7 +8,7 @@
         $('.table').DataTable();
     </script>
 @endsection
-@section('title', 'Order List | Admin Dashboard | Munal Store')
+@section('title', 'Order List | Admin Dashboard | Fenris')
 
 @section('main-content')
     <div class="page-content fade-in-up">
@@ -16,11 +16,11 @@
             <div class="col-lg-12">
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title" style="font-size: 24px; margin: auto;">Order List</div>
+                        <div class="ibox-title">Order List</div>
                     </div>
                     <div class="ibox-body">
                         <table class="table table-hover">
-                            <thead class="table-primary">
+                            <thead class="">
                                 <tr>
                                     <th style="width: 10px">S.N.</th>
                                     <th>Order Number</th>

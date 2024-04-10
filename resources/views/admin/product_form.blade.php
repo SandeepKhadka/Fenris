@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Product Add | Admin Dashboard | Munal Store')
+@section('title', 'Product Add | Admin Dashboard | Fenris')
 
 @section('form_style')
     <style>
@@ -26,13 +26,13 @@
         }
 
         .ibox-body {
-            padding: 20px;
+            background-color: #f99999;
+            color: white;
         }
 
         .form-label {
             font-size: 16px;
             font-weight: bold;
-            color: #555;
             margin-bottom: 10px;
         }
 
@@ -112,7 +112,7 @@
 @section('main-content')
     <div class="page-content fade-in-up">
         <div class="row">
-            <div class="col-lg-8 offset-lg-2">
+            <div class="col-lg-12">
                 <div class="ibox">
                     <div class="ibox-title">Product {{ isset($product_list) ? 'Update' : 'Add' }}</div>
                     <div class="ibox-body">

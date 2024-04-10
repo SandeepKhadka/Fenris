@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Welcome To Fresh Picks</title>
+    <title>Welcome To Fenris</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -55,7 +55,7 @@
 <body>
     <div class="content">
         <div class="text-container">
-            <h1 class="title">Welcome To Fresh Picks</h1>
+            <h1 class="title">Welcome To Fenris</h1>
             <a href="/admin" class="btn">Go to Dashboard</a>
         </div>
     </div>

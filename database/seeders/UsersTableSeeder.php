@@ -19,11 +19,12 @@ class UsersTableSeeder extends Seeder
     {
         $user_data = [
             [
-                'name' => 'Admin Fresh Picks',
-                'email' => 'freshpicks@gmail.com',
+                'name' => 'Admin Fenris',
+                'email' => 'fenris@gmail.com',
                 'password' => Hash::make('admin123'),
                 'role' => 'admin',
-                'status' => 'active'
+                'status' => 'active',
+                'phone' => '9823452512'
             ],
           
             [
@@ -31,7 +32,9 @@ class UsersTableSeeder extends Seeder
                 'email' => 'customer@gmail.com',
                 'password' => Hash::make('customerone123'),
                 'role' => 'customer',
-                'status' => 'active'
+                'status' => 'active',
+                'phone' => '9823452512'
+
             ]
         ];
 

@@ -8,23 +8,23 @@
         $('.table').DataTable();
     </script>
 @endsection
-@section('title', 'Product List | Admin Dashboard | Fresh Picks')
+@section('title', 'Product List | Admin Dashboard | Fenris')
 
 @section('main-content')
-    <div class="page-content fade-in-up">
+    <div class="page-content fade-in-up" style="background-color: #b4f5a8">
         <div class="row">
             <div class="col-lg-12">
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title" style="font-size: 24px; margin: auto;">Product List</div>
-                        <a href="{{ route('product.create') }}" class="btn btn-success float-right"><i class="fa fa-plus">
+                        <div class="ibox-title">Product List</div>
+                        <a href="{{ route('product.create') }}" class="btn btn-primary float-right"><i class="fa fa-plus">
                                 Add Product
                             </i>
                         </a>
                     </div>
                     <div class="ibox-body">
                         <table class="table table-hover">
-                            <thead class="table-primary">
+                            <thead class="">
                                 <tr>
                                     <th>Name</th>
                                     <th>Image</th>

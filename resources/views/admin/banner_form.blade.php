@@ -1,21 +1,22 @@
 @extends('layouts.admin')
 
-@section('title', 'Banner Add | Admin Dashboard | Fresh Picks')
+@section('title', 'Add New Banner | Admin Dashboard | Fenris')
 
 @section('form_style')
     <style>
         .page-content {
-            padding: 10px;
+            /* padding: 10px; */
         }
         .ibox {
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+
         }
         .ibox-title {
             font-size: 24px;
             font-weight: bold;
-            color: #333;
+            color: #292828;
             padding: 20px;
             border-bottom: 1px solid #eee;
             background-color: #f5f5f5;
@@ -23,16 +24,19 @@
             border-top-right-radius: 10px;
         }
         .ibox-body {
-            padding: 20px;
+            /* padding: 20px; */
+            background-color: #f99999;
+
         }
         .form-label {
             font-size: 16px;
             font-weight: bold;
-            color: #555;
+            color: #fdf9f9;
+
             margin-bottom: 10px;
         }
         .form-control {
-            width: calc(100% - 40px);
+            /* width: calc(100% - 40px); */
             padding: 10px;
             font-size: 14px;
             border-radius: 5px;
@@ -89,9 +93,9 @@
 @section('main-content')
     <div class="page-content">
         <div class="row">
-            <div class="col-lg-8 offset-lg-2">
+            <div class="col-lg-12">
                 <div class="ibox">
-                    <div class="ibox-title">Banner {{ isset($banner_data) ? 'Update' : 'Add'}}</div>
+                    <div class="ibox-title">{{ isset($banner_data) ? 'Update' : 'Add'}} New Banner</div>
                     <div class="ibox-body">
                         @if(isset($banner_data))
                             {!! Form::open(['url' =>  route('banner.update', $banner_data->id), 'class' => 'form form-container', 'files' => true ]) !!}

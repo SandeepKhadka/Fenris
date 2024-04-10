@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Category Add | Admin Dashboard | Fresh Picks')
+@section('title', 'Category Add | Admin Dashboard | Fenris')
 
 
 @section('form_style')
@@ -27,7 +27,9 @@
         }
 
         .ibox-body {
-            padding: 20px;
+            background-color: #f99999;
+            color: white
+
         }
 
         .form-group {
@@ -37,7 +39,7 @@
         .form-label {
             font-size: 16px;
             font-weight: bold;
-            color: #555;
+            color: #ffffff;
             margin-bottom: 10px;
         }
 
@@ -118,9 +120,9 @@
 @section('main-content')
     <div class="page-content">
         <div class="row">
-            <div class="col-lg-8 offset-lg-2">
+            <div class="col-lg-12">
                 <div class="ibox">
-                    <div class="ibox-title">Category {{ isset($category_list) ? 'Update' : 'Add' }}</div>
+                    <div class="ibox-title">{{ isset($category_list) ? 'Update' : 'Add' }} New Category</div>
                     <div class="ibox-body">
                         @if (isset($category_list))
                             {{ Form::open(['url' => route('category.update', $category_list->id), 'class' => 'form form-container', 'files' => true]) }}
@@ -146,7 +148,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row mb-4">
+                        {{-- <div class="form-group row mb-4">
                             {{ Form::label('is_parent', 'Is parent:', ['class' => 'col-sm-3']) }}
                             <div class="col-sm-9">
                                 {{ Form::checkbox('is_parent', 1, @$category_list->is_parent ?? true, ['id' => 'is_parent']) }}
@@ -164,7 +166,7 @@
                                     <span class="alert-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="form-group row mb-4">
                             {{ Form::label('status', 'Status:', ['class' => 'col-sm-3']) }}
                             <div class="col-sm-9">
