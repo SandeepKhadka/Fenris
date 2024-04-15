@@ -53,35 +53,43 @@ class BannerController extends Controller
         $data = $request->except('image');
 
         $file_name = uploadImage($request->image, "banner", '1200x760');
-        if ($file_name){
+        if ($file_name) {
             $data['image'] = $file_name;
         }
 
         $data['added_by'] = $request->user()->id;
         $this->banner->fill($data);
         $status = $this->banner->save();
-        if ($status){
+        if ($status) {
             $request->session()->flash('success', 'Banner added successfully');
-        }else{
+        } else {
             $request->session()->flash('error', 'Sorry! There was problem while adding banner');
         }
         return redirect()->route('banner.index');
     }
 
     public function getAllBanner()
-{
-    try {
-        $banners = $this->banner->orderBy('id', 'DESC')->where('status', 'active')->get();
+    {
+        try {
+            $banners = $this->banner->orderBy('id', 'DESC')->where('status', 'active')->get();
 
-        if ($banners->isEmpty()) {
-            return response()->json(['error' => 'No banners found'], 404);
+            if ($banners->isEmpty()) {
+                return response()->json(['error' => 'No banners found'], 404);
+            }
+
+            // Convert added_by to string for each banner
+            $bannersData = [];
+            foreach ($banners as $banner) {
+                $bannerData = $banner->toArray(); // Convert banner to array
+                $bannerData['added_by'] = (string) $banner->added_by; // Convert added_by to string
+                $bannersData[] = $bannerData;
+            }
+
+            return response()->json(['banners' => $bannersData], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Failed to retrieve banners.'], 500);
         }
-
-        return response()->json(['banners' => $banners], 200);
-    } catch (\Exception $e) {
-        return response()->json(['error' => 'Failed to retrieve banners.'], 500);
     }
-}
 
     /**
      * Display the specified resource.
@@ -103,14 +111,13 @@ class BannerController extends Controller
     public function edit($id)
     {
         $this->banner = $this->banner->find($id);
-        if (!$this->banner){
+        if (!$this->banner) {
             request()->session()->flash('error', 'Banner does not exists');
             return redirect()->route('banner.index');
         }
 
         return view('admin.banner_form')
             ->with('banner_data', $this->banner);
-
     }
 
     /**
@@ -123,7 +130,7 @@ class BannerController extends Controller
     public function update(Request $request, $id)
     {
         $this->banner = $this->banner->find($id);
-        if (!$this->banner){
+        if (!$this->banner) {
             $request->session()->flash('error', 'Banner not found');
             return redirect()->route('banner.index');
         }
@@ -133,7 +140,7 @@ class BannerController extends Controller
         $request->validate($rules);
         $data = $request->except('image');
 
-        if(isset($request->image)) {
+        if (isset($request->image)) {
             $file_name = uploadImage($request->image, "banner", '1200x760');
             if ($file_name) {
                 if ($this->banner->image != null && file_exists(public_path() . 'uploads/banner/' . $this->banner->image)) {
@@ -146,9 +153,9 @@ class BannerController extends Controller
         }
         $this->banner->fill($data);
         $status = $this->banner->save();
-        if ($status){
+        if ($status) {
             $request->session()->flash('success', 'Banner updated successfully');
-        }else{
+        } else {
             $request->session()->flash('error', 'Sorry! There was problem while updating banner');
         }
         return redirect()->route('banner.index');
@@ -164,7 +171,7 @@ class BannerController extends Controller
     {
         $this->banner = $this->banner->find($id);
 
-        if (!$this->banner){
+        if (!$this->banner) {
             request()->session()->flash('error', 'Banner does not exists');
             return redirect()->route('banner.index');
         }
@@ -172,13 +179,13 @@ class BannerController extends Controller
         $image = $this->banner->image;
         $del = $this->banner->delete();
 
-        if($del){
-            if (!empty($image) && file_exists(public_path().'/uploads/banner/'.$image)){
-                unlink(public_path().'/uploads/banner/'.$image);
-                unlink(public_path().'/uploads/banner/Thumb-'.$image);
+        if ($del) {
+            if (!empty($image) && file_exists(public_path() . '/uploads/banner/' . $image)) {
+                unlink(public_path() . '/uploads/banner/' . $image);
+                unlink(public_path() . '/uploads/banner/Thumb-' . $image);
             }
             request()->session()->flash('success', 'Banner deleted successfully');
-        }else{
+        } else {
             request()->session()->flash('error', 'Sorry! There was error in deleting banner');
         }
         return redirect()->route('banner.index');

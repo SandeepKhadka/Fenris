@@ -206,7 +206,7 @@
                         <div class="form-group row mb-4">
                             {{ Form::label('conditions', 'Condition:', ['class' => 'col-sm-3']) }}
                             <div class="col-sm-9">
-                                {{ Form::select('conditions', ['exotic' => 'Exotic', 'new' => 'New', 'discount' => 'Discount'], @$product_list->conditions, ['class' => 'form-control form-control-sm', 'id' => 'conditions', 'required' => true, 'placeholder' => 'Select Condition ']) }}
+                                {{ Form::select('conditions', ['exotic' => 'Top', 'new' => 'New', 'discount' => 'Discount'], @$product_list->conditions, ['class' => 'form-control form-control-sm', 'id' => 'conditions', 'required' => true, 'placeholder' => 'Select Condition ']) }}
                                 @error('conditions')
                                     <span class="alert-danger">{{ $message }}</span>
                                 @enderror

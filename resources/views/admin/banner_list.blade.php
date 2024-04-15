@@ -44,10 +44,10 @@
                                             <td>{{ $banner_data->title }}</td>
                                             <td>
                                                 <img src="{{ asset('uploads/banner/Thumb-' . $banner_data->image) }}"
-                                                    alt="" class="img img-fluid thumbnail-image">
+                                                    alt=""class="img img-fluid" style="max-width: 4rem;">
                                             </td>
                                             <td>
-                                                <span class="badge {{ $banner_data->status == 'active' ? 'active' : 'inactive' }}">
+                                                <span class="badge badge-{{ $banner_data->status == 'active' ? 'success' : 'danger' }}">
                                                     {{ ucfirst($banner_data->status) }}
                                                 </span>
                                             </td>

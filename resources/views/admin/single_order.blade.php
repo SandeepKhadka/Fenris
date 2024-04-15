@@ -23,8 +23,8 @@
                             </i>
                         </a>
                     </div>
-                    <div class="card-body">
-                        <table class="table table-bordered">
+                    <div class="card-body" >
+                        <table class="table table-bordered" style="background: rgb(10, 216, 103); color: white">
                             <thead>
                                 <tr>
                                     <th style="width: 10px">S.N.</th>
@@ -84,11 +84,6 @@
 
                                                 </i>
                                             </a>
-                                            <a href="#" class="btn btn-warning" title="download">
-                                                <i class="fa fa-download">
-
-                                                </i>
-                                            </a>
                                             <form action="{{ route('order.destroy', $order_data->id) }}" method="post"
                                                 class="d-inline">
                                                 @method('delete')
@@ -104,13 +99,14 @@
                         </table>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" style="background: rgb(21, 58, 38); color: white">
                             <thead>
                                 <tr>
                                     <th style="width: 10px">S.N.</th>
                                     <th>Product Image</th>
                                     <th>Product</th>
                                     <th>Quantity</th>
+                                    <th>Size</th>
                                     <th>Price</th>
                                 </tr>
                             </thead>
@@ -136,6 +132,7 @@
                                             <td>{{ $item->name }}
                                             </td>
                                             <td>{{ $item->pivot->quantity }}</td>
+                                            <td>{{ $item->pivot->size }}</td>
                                             <td>Rs {{ number_format($item->price, 2) }}</td>
                                         </tr>
                                     @endforeach

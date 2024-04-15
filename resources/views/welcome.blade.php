@@ -3,61 +3,64 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Welcome To Fenris</title>
-
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body, html {
-            height: 100%;
+        body {
+            font-family: 'Poppins', sans-serif;
             margin: 0;
-        }
-
-        .content {
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            background-image: url('https://source.unsplash.com/featured/?shopping,mall');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
-            background-color: #f3f4f6; /* Change background color */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
         }
-
-        .text-container {
+        .content {
             text-align: center;
-            padding: 20px;
-            background-color: #fff; /* Change background color */
-            border-radius: 8px; /* Add border radius */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+            color: #fff;
+            z-index: 1;
         }
-
         .title {
-            font-size: 24px; /* Increase font size */
-            margin-bottom: 20px; /* Add margin */
-            color: #333; /* Change text color */
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
-
         .btn {
-            background-color: #4caf50; /* Change button background color */
-            color: white; /* Change button text color */
-            text-decoration: none; /* Remove underline */
-            padding: 10px 20px; /* Add padding */
-            border-radius: 5px; /* Add border radius */
-            transition: background-color 0.3s; /* Add transition */
+            background-color: #ff4500; /* Orange color */
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            outline: none;
         }
-
         .btn:hover {
-            background-color: #45a049; /* Change button background color on hover */
+            background-color: #ff5733; /* Lighter orange on hover */
         }
     </style>
 </head>
 <body>
+    <div class="overlay"></div>
     <div class="content">
-        <div class="text-container">
-            <h1 class="title">Welcome To Fenris</h1>
-            <a href="/admin" class="btn">Go to Dashboard</a>
-        </div>
+        <h1 class="title">Welcome To Fenris E-Commerce</h1>
+        <a href="/login" class="btn">Login To Dashboard</a>
     </div>
 </body>
 </html>

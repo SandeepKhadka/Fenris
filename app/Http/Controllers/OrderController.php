@@ -108,6 +108,7 @@ class OrderController extends Controller
                 'order_id' => $order->id,
                 'product_id' => $product['product_id'],
                 'quantity' => $product['quantity'],
+                'size' => $product['size'],
             ]);
             // $this->order->products()->attach($product, ['quantity' => $product['quantity']]);
         }
@@ -124,6 +125,22 @@ class OrderController extends Controller
         if ($orders->isEmpty()) {
             return response()->json(['message' => 'No orders found for this user', 'orders' => []], 200);
         }
+
+        // Manipulate the data to ensure 'id' fields are integers while keeping other fields as strings
+        $orders = $orders->map(function ($order) {
+            $order['id'] = (int)$order['id'];
+            $order['user_id'] = (int)$order['user_id'];
+            $order['total_amount'] = (float)$order['total_amount']; // Assuming total_amount is a float
+
+            // Manipulate products data within each order
+            $order['products'] = $order['products']->map(function ($product) {
+                $product['id'] = (int)$product['id'];
+                // Manipulate other fields if needed
+                return $product;
+            });
+
+            return $order;
+        });
 
         // Return the orders with their associated products
         return response()->json(['orders' => $orders], 200);

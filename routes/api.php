@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
@@ -45,5 +46,13 @@ Route::get('category/{categoryId}/products', [CategoryController::class, 'getCat
 Route::post('storeOrder', [OrderController::class, 'store']);
 Route::get('getUserOrders/{user_id}', [OrderController::class, 'getUserOrders']);
 
-//User API
+//Delivery API
+
+Route::post('delivery', [DeliveryController::class, 'store']);
+Route::post('login/delivery', [DeliveryController::class, 'loginDelivery']);
+Route::get('getDeliveryData', [DeliveryController::class, 'getDeliveryData']);
+Route::get('getOrderData', [DeliveryController::class, 'getOrderData']);
+Route::post('applyOrder', [DeliveryController::class, 'applyOrder']);
+Route::post('updateOrder', [DeliveryController::class, 'updateOrderCondition']);
+
 

@@ -45,7 +45,7 @@
                                                     alt="" class="img img-fluid" style="max-width: 4rem;">
                                             </td>
                                             <td>
-                                                {{ ucfirst($product_data->conditions) }}
+                                                {{$product_data->conditions=='exotic' ? 'Top' : ucfirst($product_data->conditions) }}
                                             </td>
                                             <td>
                                                 <span
