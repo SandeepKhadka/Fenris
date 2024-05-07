@@ -14,7 +14,7 @@
     </script>
 @endsection
 
-@section('title', 'Banner  | Admin Dashboard | Fenris')
+@section('title', 'Banner List | Admin Dashboard | Fenris')
 
 @section('main-content')
     <div class="page-content fade-in-up" style="background-color: #b4f5a8">
