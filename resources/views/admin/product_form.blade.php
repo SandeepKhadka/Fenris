@@ -204,6 +204,15 @@
                             </div>
                         </div>
                         <div class="form-group row mb-4">
+                            {{ Form::label('size', 'Size:', ['class' => 'col-sm-3']) }}
+                            <div class="col-sm-9">
+                                {{ Form::select('size', ['XS' => 'XS', 'S' => 'S', 'M' => 'M', 'L' => 'L', 'XL' => 'XL', 'XXL' => 'XXL'], @$product_list->size, ['class' => 'form-control form-control-sm', 'id' => 'size', 'required' => true, 'placeholder' => 'Select Size ']) }}
+                                @error('size')
+                                    <span class="alert-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
                             {{ Form::label('conditions', 'Condition:', ['class' => 'col-sm-3']) }}
                             <div class="col-sm-9">
                                 {{ Form::select('conditions', ['exotic' => 'Top', 'new' => 'New', 'discount' => 'Discount'], @$product_list->conditions, ['class' => 'form-control form-control-sm', 'id' => 'conditions', 'required' => true, 'placeholder' => 'Select Condition ']) }}

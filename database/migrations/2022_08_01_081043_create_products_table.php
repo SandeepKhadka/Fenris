@@ -25,6 +25,7 @@ return new class extends Migration
             $table->float('price')->default(0);
             $table->float('discount')->default(0);
             $table->enum('conditions', ['exotic', 'new', 'discount'])->default('exotic');
+            $table->enum('size', ['XS', 'S', 'M', 'L', 'XL', 'XXL'])->default('M');
             $table->enum('status', ['active', 'inactive'])->default('active');
             
             $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade');
